@@ -7,6 +7,7 @@ from django.core.exceptions import ValidationError
 
 
 class ServiceListingPage(Page):
+    """ Render service listing page"""
     template = 'services/service_listing_page.html'
     subtitle = models.TextField(
         blank=True,
@@ -18,11 +19,13 @@ class ServiceListingPage(Page):
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
-        context['services'] = ServicePage.objects.live().public() #ORM
+        context['services'] = ServicePage.objects.live().public()# ORM
         return context
 
 
 class ServicePage(Page):
+    """ Render service page"""
+
     template = 'services/service_page.html'
     description = models.CharField(
         blank=True,
@@ -43,7 +46,7 @@ class ServicePage(Page):
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        help_text='This image will be used on the service Listing page and  will be cropped to 570px by 370px on this page',
+        help_text='This image will be used on the service Listing page and will be cropped to 570px by 370px on this page',
         related_name='+'
     )
     content_panels = Page.content_panels + [

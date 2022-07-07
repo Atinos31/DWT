@@ -24,6 +24,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
+    "flex",
     "home",
     "search",
     'services',
@@ -46,6 +47,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_countries",
+    "legistations"
+   
 
 ]
 
@@ -177,3 +181,4 @@ WAGTAILSEARCH_BACKENDS = {
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 WAGTAILADMIN_BASE_URL = "http://example.com"
 
+DATE_INPUT_FORMATS = ['%d-%m-%Y']

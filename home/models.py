@@ -8,7 +8,7 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 class HomePage(Page):
     
     lead_text = models.CharField(
-        max_length=140,
+        max_length=500,
         blank=True,
         help_text='Subheader text under the banner title'
     )

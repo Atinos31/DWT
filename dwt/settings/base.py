@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
 ]
 
 MIDDLEWARE = [
@@ -57,14 +58,19 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
+   
+    
 ]
 
 ROOT_URLCONF = "dwt.urls"
+
 ALLOWED_HOSTS = [
     'https://atinos31-dwt-q9pyylgg1yp.ws-eu51.gitpod.io/',
     'localhost', '127.0.0.1']
+
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-atinos31-dwt-q9pyylgg1yp.ws-eu51.gitpod.io']
+    'https://8000-atinos31-dwt-q9pyylgg1yp.ws-eu51.gitpod.io'
+    ]
 
 TEMPLATES = [
     {
@@ -170,3 +176,4 @@ WAGTAILSEARCH_BACKENDS = {
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 WAGTAILADMIN_BASE_URL = "http://example.com"
+

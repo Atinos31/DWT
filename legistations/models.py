@@ -4,7 +4,9 @@ from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from django.core.exceptions import ValidationError
 from django_countries.fields import CountryField
-from datetime import date
+from wagtail.fields import RichTextField
+from datetime import datetime, date
+from django.utils.timezone import timezone
 # Create your models here.
 
 
@@ -31,16 +33,14 @@ class LegislationPage(Page):
     """ Render legislation page"""
 
     template = 'legislations/legislation_page.html'
-    description = models.CharField(
-        blank=True,
-        max_length=1000,
-    )
+    description = RichTextField(blank=True)
     country = CountryField(
         blank_label='(select country)',
         null=False,
         blank=False)
     countries = CountryField(multiple=True)
-    date_issued = models.DateField(default=date.today().strftime('%d-%m-%Y'))
+    date_issued = models.DateField(auto_now_add=False, auto_now=False, blank=True)
+    # date_into_practice = models.DateField(auto_now_add=False, auto_now=False, blank=True)
     internal_page = models.ForeignKey(
         'wagtailcore.Page',
         blank=True,
@@ -60,15 +60,18 @@ class LegislationPage(Page):
         related_name='+'
     )
     content_panels = Page.content_panels + [
-        FieldPanel('description'),
+        FieldPanel('description', classname="full"),
         PageChooserPanel('internal_page'),
         PageChooserPanel('country'),
         PageChooserPanel('countries'),
         FieldPanel('date_issued'),
+        # FieldPanel('date_into_practice'),
         FieldPanel('external_page'),
         FieldPanel('button_text'),
         ImageChooserPanel('legislation_image')
     ]
+
+
 
 # validations
     def clean(self):

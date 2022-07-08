@@ -181,4 +181,7 @@ WAGTAILSEARCH_BACKENDS = {
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 WAGTAILADMIN_BASE_URL = "http://example.com"
 
-DATE_INPUT_FORMATS = ['%d-%m-%Y']
+WAGTAIL_DATE_FORMAT = '%Y-%m-%d'
+DATE_INPUT_FORMATS = ['%Y-%m-%d']
+WAGTAIL_TIME_FORMAT = '%H:%M'
+

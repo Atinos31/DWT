@@ -8,10 +8,11 @@
 <div class="row mb-3">
     <div class="col-lg-6">
         <h1 class="cc-inner-title">{{page.title}}</h1>
-        <p class="cc-inner-subtitle cc-service-subtitle">{{ page.description }}</p>
+        <p class="cc-inner-subtitle cc-service-subtitle">{{ page.description|richtext }}</p>
          <p>{{ page.country }}</p>
          <p><i class="{{ page.countries.flag_css }}"></i></p>
          <p class="lead"> date issued{{ page.date_issued }}</p>
+         <!-- <p class="lead"> date into practice{{ page.date_into_practice }}</p> -->
     
 
         {% if page.internal_page or page.external_page %}
